@@ -1,0 +1,102 @@
+<div class="page-view" id="patientsPage">
+
+  <!-- ===== CONTROLS BAR ===== -->
+  <div class="patient-controls">
+    <button id="patientAddBtn" style="border:none;cursor:pointer;background:var(--primary);color:#fff;padding:10px 14px;border-radius:12px;font-weight:700;display:inline-flex;align-items:center;gap:8px;">
+      <i class="fas fa-user-plus"></i> Add Patient
+    </button>
+    <input id="patientSearchInput" type="text" placeholder="Search by name or ID..."
+      style="flex:1;min-width:220px;padding:10px 14px;border-radius:12px;border:1px solid var(--gray-200);outline:none;" />
+    <select id="patientStatusFilter"
+      style="padding:10px 14px;border-radius:12px;border:1px solid var(--gray-200);outline:none;font-weight:600;color:var(--gray-700);">
+      <option value="all">All statuses</option>
+      <option value="admitted">Admitted</option>
+      <option value="outpatient">Outpatient</option>
+      <option value="emergency">Emergency</option>
+      <option value="observation">Observation</option>
+      <option value="discharged">Discharged</option>
+    </select>
+    <input id="patientWardFilter" type="text" placeholder="Ward/Room filter..."
+      style="width:220px;max-width:100%;padding:10px 14px;border-radius:12px;border:1px solid var(--gray-200);outline:none;" />
+    <button id="patientResetBtn" type="button"
+      style="border:1px solid var(--gray-200);cursor:pointer;background:#fff;color:var(--gray-700);padding:10px 14px;border-radius:12px;font-weight:700;">
+      Reset
+    </button>
+  </div>
+
+  <!-- ===== STATS SUMMARY BAR ===== -->
+  <div class="patients-stats" id="patientsStatsRow">
+    <div class="p-stat-card green">
+      <div class="p-stat-icon"><i class="fas fa-procedures"></i></div>
+      <div class="p-stat-content">
+        <span>Active Inpatients</span>
+        <h4 id="pStatInpatients">0</h4>
+      </div>
+    </div>
+    <div class="p-stat-card red">
+      <div class="p-stat-icon"><i class="fas fa-heartbeat"></i></div>
+      <div class="p-stat-content">
+        <span>Emergency Cases</span>
+        <h4 id="pStatEmergency">0</h4>
+      </div>
+    </div>
+    <div class="p-stat-card amber">
+      <div class="p-stat-icon"><i class="fas fa-user-clock"></i></div>
+      <div class="p-stat-content">
+        <span>ICU / Obs</span>
+        <h4 id="pStatObservation">0</h4>
+      </div>
+    </div>
+    <div class="p-stat-card blue">
+      <div class="p-stat-icon"><i class="fas fa-bed"></i></div>
+      <div class="p-stat-content">
+        <span>Bed Occupancy</span>
+        <h4 id="pStatOccupancy">0%</h4>
+        <div class="p-stat-progress">
+          <div class="p-stat-progress-bar" id="pStatOccupancyBar" style="width:0%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SECTION TITLE + VIEW TOGGLE ===== -->
+  <div class="section-title">
+    <h2><i class="fas fa-users"></i> Current patients</h2>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <div class="view-switcher">
+        <button id="patientViewTableBtn" class="active" title="Table View">
+          <i class="fas fa-list"></i> Table
+        </button>
+        <button id="patientViewGridBtn" title="Grid View">
+          <i class="fas fa-th-large"></i> Grid
+        </button>
+      </div>
+      <span class="badge-link"><i class="fas fa-rotate-right"></i> live</span>
+    </div>
+  </div>
+
+  <!-- ===== TABLE VIEW ===== -->
+  <div class="table-wrapper" id="patientTableWrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Patient</th>
+          <th>ID</th>
+          <th>Status</th>
+          <th>Ward / Room</th>
+          <th>Timeline / Stay</th>
+          <th style="text-align:center">Actions</th>
+        </tr>
+      </thead>
+      <tbody id="patientTableBody">
+        <!-- dynamic rows injected by script -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ===== GRID VIEW ===== -->
+  <div id="patientGridContainer" class="patient-grid-container" style="display:none;">
+    <!-- dynamic grid cards injected by script -->
+  </div>
+
+</div>

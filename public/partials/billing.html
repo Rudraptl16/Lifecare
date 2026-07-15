@@ -1,0 +1,53 @@
+<div class="page-view" id="billingPage">
+
+  <!-- ===== SECTION TITLE ===== -->
+  <div class="section-title" style="margin-top:0">
+    <h2><i class="fas fa-file-invoice"></i> Billing</h2>
+    <span class="badge-link"><i class="fas fa-wallet"></i> revenue snapshot</span>
+  </div>
+
+  <!-- ===== BILLING SUMMARY CARDS ===== -->
+  <div class="panel-grid billing-summary-grid">
+    <div class="panel-card billing-card glass-card">
+      <h3>Pending invoices</h3>
+      <p id="billingPendingCount">0</p>
+    </div>
+    <div class="panel-card billing-card glass-card">
+      <h3>Completed payments</h3>
+      <p id="billingPaidCount">0</p>
+    </div>
+    <div class="panel-card billing-card glass-card">
+      <h3>Overdue</h3>
+      <p id="billingOverdueCount">0</p>
+    </div>
+  </div>
+
+  <!-- ===== FILTERS ===== -->
+  <div class="billing-controls">
+    <input id="billingSearchInput" type="text" placeholder="Search invoices or patient..." />
+    <select id="billingStatusFilter">
+      <option value="all">All statuses</option>
+      <option value="Pending">Pending</option>
+      <option value="Paid">Paid</option>
+      <option value="Overdue">Overdue</option>
+    </select>
+  </div>
+
+  <!-- ===== BILLING TABLE ===== -->
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Invoice</th>
+          <th>Patient</th>
+          <th>Due date</th>
+          <th>Total</th>
+          <th>Status</th>
+          <th style="text-align:center">Actions</th>
+        </tr>
+      </thead>
+      <tbody id="billingTableBody"></tbody>
+    </table>
+  </div>
+
+</div>

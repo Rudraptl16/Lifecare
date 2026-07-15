@@ -1,0 +1,101 @@
+<!-- ===== DOCTOR MODAL ===== -->
+<div id="doctorModal" class="patient-modal" aria-hidden="true">
+  <div class="patient-modal__backdrop" data-doctor-modal-close></div>
+  <div class="patient-modal__panel" role="dialog" aria-modal="true" aria-labelledby="doctorModalTitle">
+
+    <div class="patient-modal__header"
+      style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid var(--gray-200);">
+      <h3 id="doctorModalTitle" style="font-size:1.1rem;color:var(--gray-900)">Add Doctor</h3>
+      <button data-doctor-modal-close type="button"
+        style="border:none;background:transparent;cursor:pointer;color:var(--gray-500);font-size:1.2rem;">&times;</button>
+    </div>
+
+    <div class="patient-modal__body" style="padding:16px;display:flex;flex-direction:column;gap:12px;">
+      <input id="doctorModalMode" type="hidden" value="add" />
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <label style="flex:1;min-width:180px;font-weight:700;color:var(--gray-700);font-size:0.9rem;">
+          Doctor Name
+          <input id="doctorNameInput" type="text"
+            style="width:100%;margin-top:6px;padding:10px 14px;border-radius:12px;border:1px solid var(--gray-200);outline:none;" />
+        </label>
+        <label style="flex:1;min-width:160px;font-weight:700;color:var(--gray-700);font-size:0.9rem;">
+          Doctor ID
+          <input id="doctorIdInput" type="text" placeholder="D-0001"
+            style="width:100%;margin-top:6px;padding:10px 14px;border-radius:12px;border:1px solid var(--gray-200);outline:none;" />
+        </label>
+      </div>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <label style="flex:1;min-width:200px;font-weight:700;color:var(--gray-700);font-size:0.9rem;">
+          Specialty
+          <input id="doctorSpecialtyInput" type="text" placeholder="Cardiology"
+            style="width:100%;margin-top:6px;padding:10px 14px;border-radius:12px;border:1px solid var(--gray-200);outline:none;" />
+        </label>
+        <label style="flex:1;min-width:190px;font-weight:700;color:var(--gray-700);font-size:0.9rem;">
+          Status
+          <select id="doctorStatusSelect"
+            style="width:100%;margin-top:6px;padding:10px 14px;border-radius:12px;border:1px solid var(--gray-200);outline:none;font-weight:700;color:var(--gray-700);">
+            <option value="available">Available</option>
+            <option value="on-duty">On duty</option>
+            <option value="absent">Absent</option>
+          </select>
+        </label>
+      </div>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <label style="flex:1;min-width:180px;font-weight:700;color:var(--gray-700);font-size:0.9rem;">
+          Email
+          <input id="doctorEmailInput" type="email" placeholder="hello@example.com"
+            style="width:100%;margin-top:6px;padding:10px 14px;border-radius:12px;border:1px solid var(--gray-200);outline:none;" />
+        </label>
+        <label style="flex:1;min-width:180px;font-weight:700;color:var(--gray-700);font-size:0.9rem;">
+          Ward / Room
+          <input id="doctorWardInput" type="text" placeholder="W-007"
+            style="width:100%;margin-top:6px;padding:10px 14px;border-radius:12px;border:1px solid var(--gray-200);outline:none;" />
+        </label>
+      </div>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <label style="flex:1;min-width:180px;font-weight:700;color:var(--gray-700);font-size:0.9rem;">
+          Phone Number
+          <input id="doctorPhoneInput" type="text" placeholder="+1-202-555-0199"
+            style="width:100%;margin-top:6px;padding:10px 14px;border-radius:12px;border:1px solid var(--gray-200);outline:none;" />
+        </label>
+        <label style="flex:1;min-width:180px;font-weight:700;color:var(--gray-700);font-size:0.9rem;">
+          Rating (0 - 5)
+          <input id="doctorRatingInput" type="number" step="0.1" min="0" max="5" placeholder="4.8"
+            style="width:100%;margin-top:6px;padding:10px 14px;border-radius:12px;border:1px solid var(--gray-200);outline:none;" />
+        </label>
+      </div>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <label style="flex:1;min-width:180px;font-weight:700;color:var(--gray-700);font-size:0.9rem;">
+          Experience (Years)
+          <input id="doctorExperienceInput" type="number" min="0" placeholder="5"
+            style="width:100%;margin-top:6px;padding:10px 14px;border-radius:12px;border:1px solid var(--gray-200);outline:none;" />
+        </label>
+        <label style="flex:1;min-width:180px;font-weight:700;color:var(--gray-700);font-size:0.9rem;">
+          Schedule
+          <input id="doctorScheduleInput" type="text" placeholder="Mon-Fri 09:00 - 17:00"
+            style="width:100%;margin-top:6px;padding:10px 14px;border-radius:12px;border:1px solid var(--gray-200);outline:none;" />
+        </label>
+      </div>
+
+      <div style="font-size:0.85rem;color:var(--gray-500)">Tip: Use this modal to add a new doctor profile and share it with staff.</div>
+    </div>
+
+    <div class="patient-modal__footer"
+      style="padding:14px 16px;border-top:1px solid var(--gray-200);display:flex;justify-content:space-between;align-items:center;gap:12px;">
+      <button id="doctorDeleteBtn" type="button" class="button-danger"
+        style="display:none;background:#dc2626;color:#fff;border:none;padding:10px 14px;border-radius:12px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px;">
+        <i class="fas fa-trash-alt"></i> Delete
+      </button>
+      <div style="display:flex;gap:10px;margin-left:auto">
+        <button id="doctorCancelBtn" type="button" class="button-outline">Cancel</button>
+        <button id="doctorSaveBtn" type="button" class="button-primary">Save</button>
+      </div>
+    </div>
+
+  </div>
+</div>

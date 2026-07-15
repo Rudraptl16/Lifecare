@@ -1,0 +1,129 @@
+/* ==========================================================
+   4. HEADER — Logo, Date, User Badge, Section Title
+   ========================================================== */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+  margin-bottom: 28px;
+  border-bottom: 2px solid var(--gray-100);
+  padding-bottom: 20px;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon {
+  color: white;
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+}
+
+.logo-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  object-fit: contain;
+}
+
+.logo-text h1 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: var(--gray-900);
+}
+
+.logo-text h1 span {
+  color: var(--primary);
+}
+
+.logo-text small {
+  font-size: 0.8rem;
+  color: var(--gray-500);
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  display: block;
+  margin-top: -2px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-date {
+  background: var(--gray-100);
+  padding: 8px 18px;
+  border-radius: 40px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--gray-700);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-date i {
+  color: var(--primary);
+}
+
+.user-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--primary-light);
+  padding: 6px 16px 6px 12px;
+  border-radius: 40px;
+  font-weight: 600;
+  color: var(--primary-dark);
+  border: 1px solid rgba(11, 110, 79, 0.15);
+}
+
+.user-badge i {
+  font-size: 1.2rem;
+}
+
+/* ── Section Title ───────────────────────────────────────── */
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 28px 0 14px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.section-title h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gray-800);
+  letter-spacing: -0.3px;
+}
+
+.section-title h2 i {
+  color: var(--primary);
+  margin-right: 10px;
+}
+
+.section-title .badge-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary);
+  background: var(--primary-light);
+  padding: 6px 16px;
+  border-radius: 40px;
+  transition: var(--transition);
+  cursor: default;
+}

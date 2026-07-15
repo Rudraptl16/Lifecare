@@ -1,0 +1,92 @@
+/* ==========================================================
+   2. LAYOUT — Dashboard Shell, Content Area, Page Views
+   ========================================================== */
+
+.dashboard-shell {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 24px;
+  max-width: 1700px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.content-area {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.page-view {
+  display: none;
+}
+
+.page-view.active {
+  display: block;
+  animation: fadeIn 0.35s ease both;
+}
+
+/* ── Panel / Analytics / Card Grids ─────────────────────── */
+.panel-grid,
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-bottom: 14px;
+}
+
+.lifecare-dashboard {
+  max-width: 1400px;
+  width: 100%;
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  padding: 28px 32px 36px;
+  transition: var(--transition);
+}
+
+/* ── Shared Card Base ───────────────────────────────────── */
+.panel-card,
+.analytics-card,
+.department-card,
+.billing-card,
+.settings-card,
+.report-card,
+.scheduler-card,
+.stat-card,
+.appt-card {
+  background: white;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-sm);
+  padding: 20px;
+  transition: var(--transition);
+  animation: fadeInUp 0.45s ease both;
+}
+
+.panel-card h3,
+.analytics-card h3,
+.department-card h3,
+.billing-card h3,
+.settings-card h3,
+.report-card h3,
+.scheduler-card h3 {
+  margin-bottom: 14px;
+  font-size: 1.05rem;
+  letter-spacing: -0.2px;
+  color: var(--gray-800);
+}
+
+.panel-card:hover,
+.analytics-card:hover,
+.department-card:hover,
+.billing-card:hover,
+.settings-card:hover,
+.report-card:hover,
+.scheduler-card:hover,
+.appt-card:hover,
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}

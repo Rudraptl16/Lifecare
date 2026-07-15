@@ -1,0 +1,37 @@
+/* ==========================================================
+   12. MODALS — Patient Modal, Doctor Modal, shared panel
+   ========================================================== */
+
+.patient-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.patient-modal.open {
+  display: flex;
+}
+
+.patient-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.patient-modal__panel {
+  position: relative;
+  width: min(720px, 92vw);
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.patient-modal__panel input,
+.patient-modal__panel select,
+.patient-modal__panel button {
+  font-size: 0.95rem;
+}

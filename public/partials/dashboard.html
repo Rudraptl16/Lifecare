@@ -1,0 +1,107 @@
+<div class="page-view active" id="dashboardPage">
+  <div class="lifecare-dashboard">
+
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+      <div class="logo-area">
+        <div class="logo-icon">
+          <img src="lifecare 1.png" alt="LifeCare Logo" class="logo-img">
+        </div>
+        <div class="logo-text">
+          <h1>Life<span>Care</span></h1>
+          <small>
+            <i class="fas fa-hospital-alt"></i> hospital management
+          </small>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <div class="header-date">
+          <i class="fas fa-calendar-check"></i>
+          <span id="currentDate"></span>
+        </div>
+        <div class="user-badge"><i class="fas fa-user-md"></i> Dr. Mehta</div>
+      </div>
+    </header>
+
+    <!-- ===== STATS ===== -->
+    <section class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-procedures"></i></div>
+        <div class="stat-content">
+          <h3 id="totalPatients">0</h3>
+          <p>total patients</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-user-injured"></i></div>
+        <div class="stat-content">
+          <h3 id="admittedPatients">0</h3>
+          <p>admitted</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-clock"></i></div>
+        <div class="stat-content">
+          <h3 id="appointmentsToday">0</h3>
+          <p>appointments today</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-flask"></i></div>
+        <div class="stat-content">
+          <h3 id="labsPending">0</h3>
+          <p>lab reports pending</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-stethoscope"></i></div>
+        <div class="stat-content">
+          <h3 id="doctorsAvailable">0</h3>
+          <p>doctors available</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== QUICK ACTIONS ===== -->
+    <section class="panel-grid">
+      <div class="panel-card">
+        <h3>Quick actions</h3>
+        <div class="action-grid">
+          <button class="action-button" id="dashboardAddPatientBtn"><i class="fas fa-user-plus"></i> Add Patient</button>
+          <button class="action-button" id="dashboardAddDoctorBtn"><i class="fas fa-user-md"></i> Add Doctor</button>
+          <button class="action-button" id="dashboardNewAppointmentBtn"><i class="fas fa-calendar-plus"></i> New Appointment</button>
+          <button class="action-button" id="dashboardGenerateReportBtn"><i class="fas fa-file-medical-alt"></i> Generate Report</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ANALYTICS ===== -->
+    <section class="analytics-grid">
+      <div class="analytics-card">
+        <h3>Staff focus</h3>
+        <ul>
+          <li>Doctor rosters updated 5m ago</li>
+          <li>Admissions trending +12% this week</li>
+          <li>Emergency backlog down 8%</li>
+        </ul>
+      </div>
+      <div class="analytics-card">
+        <h3>Notifications</h3>
+        <div class="notification-item">
+          <div>New lab report ready</div>
+          <span>2 min</span>
+        </div>
+        <div class="notification-item">
+          <div>Patient discharged</div>
+          <span>14 min</span>
+        </div>
+        <div class="notification-item">
+          <div>Doctor schedule updated</div>
+          <span>32 min</span>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>

@@ -1,0 +1,79 @@
+<!-- ===== EHR DRAWER ===== -->
+<div id="ehrDrawer" class="ehr-drawer">
+  <div class="ehr-drawer__backdrop" id="ehrDrawerBackdrop"></div>
+  <div class="ehr-drawer__panel">
+    <div class="ehr-drawer__header">
+      <div class="ehr-drawer__header-left">
+        <div class="ehr-drawer__avatar" id="ehrDrawerAvatar">SC</div>
+        <div>
+          <h3 id="ehrDrawerName">Sophia Chen</h3>
+          <span id="ehrDrawerId" class="ehr-drawer__id">P-1024</span>
+        </div>
+      </div>
+      <button class="ehr-drawer__close" id="ehrDrawerCloseBtn">&times;</button>
+    </div>
+
+    <div class="ehr-drawer__body">
+      <!-- ECG Monitor Card -->
+      <div class="ecg-card">
+        <div class="ecg-card__header">
+          <span><i class="fas fa-heartbeat"></i> Real-time ECG Monitor</span>
+          <span class="ecg-rate"><span id="ehrDrawerHeartRateVal">74</span> bpm</span>
+        </div>
+        <canvas id="ecgCanvas" class="ecg-canvas" width="400" height="80"></canvas>
+      </div>
+
+      <!-- Vitals Grid -->
+      <div class="ehr-vitals-grid">
+        <div class="vitals-widget">
+          <i class="fas fa-heartbeat vitals-icon-hr"></i>
+          <div class="vitals-info">
+            <span class="vitals-label">Heart Rate</span>
+            <span class="vitals-value" id="ehrDrawerHeartRate">74 bpm</span>
+          </div>
+        </div>
+        <div class="vitals-widget">
+          <i class="fas fa-tachometer-alt vitals-icon-bp"></i>
+          <div class="vitals-info">
+            <span class="vitals-label">Blood Pressure</span>
+            <span class="vitals-value" id="ehrDrawerBloodPressure">118/76</span>
+          </div>
+        </div>
+        <div class="vitals-widget">
+          <i class="fas fa-thermometer-half vitals-icon-temp"></i>
+          <div class="vitals-info">
+            <span class="vitals-label">Temperature</span>
+            <span class="vitals-value" id="ehrDrawerTemperature">37.2 °C</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile Grid -->
+      <div class="ehr-info-grid">
+        <div><strong>Age:</strong> <span id="ehrDrawerAge">29</span></div>
+        <div><strong>Gender:</strong> <span id="ehrDrawerGender">Female</span></div>
+        <div><strong>Blood Type:</strong> <span id="ehrDrawerBloodGroup">A+</span></div>
+        <div><strong>Status:</strong> <span id="ehrDrawerStatus" class="status-badge admitted">Admitted</span></div>
+        <div style="grid-column:span 2"><strong>Ward/Room:</strong> <span id="ehrDrawerWard">Ward 3A · 204</span></div>
+        <div style="grid-column:span 2"><strong>Diagnosis:</strong> <span id="ehrDrawerDiagnosis">Acute Appendicitis</span></div>
+        <div style="grid-column:span 2"><strong>Admission:</strong> <span id="ehrDrawerAdmit">—</span></div>
+        <div style="grid-column:span 2"><strong>Checkout:</strong> <span id="ehrDrawerCheckout">—</span></div>
+      </div>
+
+      <!-- Clinical Logs -->
+      <div class="ehr-logs-section">
+        <h4><i class="fas fa-clipboard-list"></i> Clinical Logs &amp; Timeline</h4>
+        <div class="ehr-logs-list" id="ehrLogsList">
+          <!-- Dynamically rendered progress logs -->
+        </div>
+        <div class="add-note-form">
+          <textarea id="ehrNewNoteInput" placeholder="Add clinical progress note..."></textarea>
+          <button id="ehrAddNoteBtn" class="button-primary"
+            style="margin-top:4px;padding:10px 14px;border-radius:12px;font-weight:700;width:100%;">
+            <i class="fas fa-plus"></i> Add Note
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

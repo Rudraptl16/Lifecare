@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LifeCare · Hospital Management</title>
+
+    <!-- Font Awesome (icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- jsPDF library for PDF export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- ============================================================
+         LIFECARE · Hospital Management
+         Shell layout – sections are loaded from /partials/*.html
+
+         File map:
+           partials/sidebar.html        → sidebar <aside> nav panel
+           partials/dashboard.html      → Dashboard page view
+           partials/patients.html       → Patients page view
+           partials/doctors.html        → Doctors page view
+           partials/appointments.html   → Appointments page view
+           partials/departments.html    → Departments page view
+           partials/billing.html        → Billing page view
+           partials/modal-patient.html  → Add / Edit patient modal
+           partials/modal-doctor.html   → Add / Edit doctor modal
+           partials/ehr-drawer.html     → EHR slide-in drawer
+           partials/modals-misc.html    → Invoice, Appointment & Dept-shift modals
+    ============================================================ -->
+
+    <!-- ── MOBILE SIDEBAR TOGGLE + OVERLAY (outside shell) ───────── -->
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Open navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- ── MAIN SHELL ────────────────────────────────────────────── -->
+    <div class="dashboard-shell">
+
+      <!-- ── SIDEBAR PANEL ──────────────────────────────────────── -->
+      <div id="sidebarSlot"></div>
+      <!-- partials/sidebar.html renders the <aside class="sidebar"> -->
+
+      <!-- ── MAIN CONTENT AREA ─────────────────────────────────── -->
+      <main class="content-area">
+
+        <!-- Page: Dashboard   → partials/dashboard.html -->
+        <div id="dashboardSlot"></div>
+
+        <!-- Page: Patients    → partials/patients.html -->
+        <div id="patientsSlot"></div>
+
+        <!-- Page: Doctors     → partials/doctors.html -->
+        <div id="doctorsSlot"></div>
+
+        <!-- Page: Appointments → partials/appointments.html -->
+        <div id="appointmentsSlot"></div>
+
+        <!-- Page: Departments → partials/departments.html -->
+        <div id="departmentsSlot"></div>
+
+        <!-- Page: Billing     → partials/billing.html -->
+        <div id="billingSlot"></div>
+
+        <!-- ── FOOTER ───────────────────────────────────────────── -->
+        <div class="footer-note">
+          <span><i class="fas fa-copyright"></i> 2026 LifeCare · v2.4.1</span>
+          <div class="footer-links">
+            <span><i class="fas fa-file-medical-alt"></i> EMR</span>
+            <span><i class="fas fa-chart-line"></i> analytics</span>
+            <span><i class="fas fa-phone-alt"></i> support</span>
+          </div>
+        </div>
+
+        <!-- Patient Modal     → partials/modal-patient.html -->
+        <div id="patientModalSlot"></div>
+
+        <!-- Doctor Modal      → partials/modal-doctor.html -->
+        <div id="doctorModalSlot"></div>
+
+      </main>
+
+    </div><!-- /.dashboard-shell -->
+
+    <!-- ── EHR DRAWER (overlays everything) → partials/ehr-drawer.html -->
+    <div id="ehrDrawerSlot"></div>
+
+    <!-- ── MISC MODALS (Invoice · Appointment · Dept Shift) → partials/modals-misc.html -->
+    <div id="miscModalsSlot"></div>
+
+    <!-- ============================================================
+         PARTIAL LOADER
+         Fetches each HTML partial and injects it into its slot.
+         app.js is appended AFTER all partials load so it always
+         runs against a fully-rendered DOM.
+    ============================================================ -->
+    <script>
+      const PARTIALS = [
+        { slot: '#sidebarSlot',       file: 'partials/sidebar.html'       },
+        { slot: '#dashboardSlot',     file: 'partials/dashboard.html'     },
+        { slot: '#patientsSlot',      file: 'partials/patients.html'      },
+        { slot: '#doctorsSlot',       file: 'partials/doctors.html'       },
+        { slot: '#appointmentsSlot',  file: 'partials/appointments.html'  },
+        { slot: '#departmentsSlot',   file: 'partials/departments.html'   },
+        { slot: '#billingSlot',       file: 'partials/billing.html'       },
+        { slot: '#patientModalSlot',  file: 'partials/modal-patient.html' },
+        { slot: '#doctorModalSlot',   file: 'partials/modal-doctor.html'  },
+        { slot: '#ehrDrawerSlot',     file: 'partials/ehr-drawer.html'    },
+        { slot: '#miscModalsSlot',    file: 'partials/modals-misc.html'   },
+      ];
+
+      async function loadPartials() {
+        await Promise.all(
+          PARTIALS.map(({ file, slot }) =>
+            fetch(file)
+              .then(r => r.text())
+              .then(html => {
+                const el = document.querySelector(slot);
+                if (el) el.innerHTML = html;
+              })
+              .catch(err => console.warn('[LifeCare] Failed to load partial:', file, err))
+          )
+        );
+
+        // Bootstrap the application only after the full DOM is ready
+        const appScript = document.createElement('script');
+        appScript.src = 'js/app.js';
+        document.body.appendChild(appScript);
+      }
+
+      loadPartials();
+    </script>
+
+  </body>
+</html>

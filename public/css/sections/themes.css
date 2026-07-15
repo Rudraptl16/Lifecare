@@ -1,0 +1,141 @@
+/* ==========================================================
+   15. THEMES — High Contrast theme overrides
+   ========================================================== */
+
+.theme-high-contrast {
+  background: #0b0b0b;
+  color: #f8f8f2;
+}
+
+.theme-high-contrast .sidebar,
+.theme-high-contrast .panel-card,
+.theme-high-contrast .analytics-card,
+.theme-high-contrast .department-card,
+.theme-high-contrast .billing-card,
+.theme-high-contrast .settings-card,
+.theme-high-contrast .lifecare-dashboard,
+.theme-high-contrast .table-wrapper table,
+.theme-high-contrast .assistant-response {
+  background: #121212;
+  color: #f8f8f2;
+  border-color: #3f3f46;
+}
+
+.theme-high-contrast .nav-item { color: #f8f8f2; }
+
+.theme-high-contrast .nav-item.active,
+.theme-high-contrast .nav-item:hover {
+  background: #2a2a2a;
+  color: #f9fafb;
+}
+
+.theme-high-contrast .button-primary {
+  background: #ffffff;
+  color: #111827;
+}
+
+.theme-high-contrast .button-outline {
+  background: transparent;
+  color: #f8f8f2;
+  border-color: #6b7280;
+}
+
+.theme-high-contrast .settings-toggle,
+.theme-high-contrast .settings-select,
+.theme-high-contrast .assistant-action-row input,
+.theme-high-contrast .department-controls input,
+.theme-high-contrast .billing-controls input,
+.theme-high-contrast .settings-select select {
+  background: #1f1f1f;
+  border-color: #3f3f46;
+  color: #f8f8f2;
+}
+
+.theme-high-contrast .status-badge { background: #1f1f1f; }
+
+/* ── Custom Select in High Contrast ─────────────────────── */
+.theme-high-contrast .custom-select-trigger {
+  background: #1f1f1f;
+  border-color: #3f3f46;
+  color: #f8f8f2;
+}
+
+.theme-high-contrast .custom-select-dropdown {
+  background: #121212;
+  border-color: #3f3f46;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.theme-high-contrast .custom-select-option { color: #f8f8f2; }
+.theme-high-contrast .custom-select-option:hover { background: #2a2a2a; }
+.theme-high-contrast .custom-select-option.selected { background: #ffffff; color: #111827; }
+
+/* ── Doctor / Patient Cards in High Contrast ─────────────── */
+.theme-high-contrast .doctor-card,
+.theme-high-contrast .patient-card {
+  background: #121212;
+  border-color: #3f3f46;
+}
+
+.theme-high-contrast .doctor-card__info,
+.theme-high-contrast .patient-card__info {
+  background: #1f1f1f;
+  border-color: #3f3f46;
+  color: #f8f8f2;
+}
+
+.theme-high-contrast .doctor-card__title h4,
+.theme-high-contrast .patient-card__title h4 { color: #f8f8f2; }
+
+/* ── Appointments in High Contrast ──────────────────────── */
+.theme-high-contrast .appt-card {
+  background: #000;
+  border: 2px solid #fff;
+  box-shadow: none;
+}
+
+.theme-high-contrast .appt-card:hover { border-color: #00ff00; }
+
+.theme-high-contrast .appt-card__actions .btn-cancel {
+  background: #000;
+  color: #ff0000;
+  border: 1px solid #ff0000;
+}
+
+.theme-high-contrast .appt-card__actions .btn-complete {
+  background: #000;
+  color: #00ff00;
+  border: 1px solid #00ff00;
+}
+
+/* ── Dept Shift in High Contrast ─────────────────────────── */
+.theme-high-contrast .dept-shift-scheduler {
+  background: #000;
+  border: 1px dashed #fff;
+}
+
+.theme-high-contrast .dept-shift-row { color: #fff; }
+.theme-high-contrast .dept-shift-row strong { color: #fff; }
+.theme-high-contrast .dept-shift-row:not(:last-child) { border-bottom: 1px solid #fff; }
+
+/* ── Invoice Receipt in High Contrast ────────────────────── */
+.theme-high-contrast .receipt-meta {
+  background: #1f1f1f;
+  border-color: #3f3f46;
+  color: #f8f8f2;
+}
+
+.theme-high-contrast .receipt-table td {
+  border-color: #27272a;
+  color: #f8f8f2;
+}
+
+.theme-high-contrast .receipt-table th {
+  border-color: #3f3f46;
+  color: #a1a1aa;
+}
+
+.theme-high-contrast .receipt-summary div.grand-total {
+  color: #ffffff;
+  border-top-color: #3f3f46;
+}

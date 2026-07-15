@@ -1,0 +1,54 @@
+/* ==========================================================
+   Lifecare Management Portal — Main Stylesheet
+   ----------------------------------------------------------
+   All styles are split into section files under css/sections/.
+   Import order matters: base → layout → components → pages
+   ========================================================== */
+
+/*  1. Base: reset, CSS variables, body, keyframes */
+@import url("sections/base.css");
+
+/*  2. Layout: dashboard shell, content area, page views */
+@import url("sections/layout.css");
+
+/*  3. Sidebar: nav panel, mobile toggle & overlay */
+@import url("sections/sidebar.css");
+
+/*  4. Header: logo, date pill, user badge, section title */
+@import url("sections/header.css");
+
+/*  5. Dashboard: stats grid, quick actions, notifications */
+@import url("sections/dashboard.css");
+
+/*  6. Patients: controls, stat row, view switcher, grid cards */
+@import url("sections/patients.css");
+
+/*  7. Doctors: doctor grid cards */
+@import url("sections/doctors.css");
+
+/*  8. Appointments: appointment cards & actions */
+@import url("sections/appointments.css");
+
+/*  9. Departments: dept grid, shift scheduler */
+@import url("sections/departments.css");
+
+/* 10. Billing: summary cards, invoice receipt */
+@import url("sections/billing.css");
+
+/* 11. Table: shared table, status badges, icon buttons */
+@import url("sections/table.css");
+
+/* 12. Modals: modal overlay, backdrop, panel shell */
+@import url("sections/modals.css");
+
+/* 13. EHR Drawer: slide-in panel, ECG, vitals, logs */
+@import url("sections/ehr-drawer.css");
+
+/* 14. Components: buttons, custom select, footer, misc */
+@import url("sections/components.css");
+
+/* 15. Themes: high-contrast overrides */
+@import url("sections/themes.css");
+
+/* 16. Responsive: media queries 1200px → 420px */
+@import url("sections/responsive.css");

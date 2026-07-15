@@ -1,0 +1,84 @@
+<div class="page-view" id="doctorsPage">
+
+  <!-- ===== SECTION TITLE ===== -->
+  <div class="section-title" style="margin-top:0">
+    <h2><i class="fas fa-user-md"></i> Doctors</h2>
+    <span class="badge-link"><i class="fas fa-user-md"></i> manage roster</span>
+  </div>
+
+  <!-- ===== DOCTOR STATS ===== -->
+  <div class="patients-stats" id="doctorStatsGrid" style="margin-bottom:20px;">
+    <div class="p-stat-card green">
+      <div class="p-stat-icon"><i class="fas fa-user-md"></i></div>
+      <div class="p-stat-content">
+        <span>Total Roster</span>
+        <h4 id="docStatTotal">0</h4>
+      </div>
+    </div>
+    <div class="p-stat-card blue">
+      <div class="p-stat-icon"><i class="fas fa-stethoscope"></i></div>
+      <div class="p-stat-content">
+        <span>Available</span>
+        <h4 id="docStatAvailable">0</h4>
+      </div>
+    </div>
+    <div class="p-stat-card amber">
+      <div class="p-stat-icon"><i class="fas fa-user-clock"></i></div>
+      <div class="p-stat-content">
+        <span>On Duty</span>
+        <h4 id="docStatOnDuty">0</h4>
+      </div>
+    </div>
+    <div class="p-stat-card red">
+      <div class="p-stat-icon"><i class="fas fa-user-times"></i></div>
+      <div class="p-stat-content">
+        <span>Absent</span>
+        <h4 id="docStatAbsent">0</h4>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CONTROLS BAR ===== -->
+  <div class="doctor-controls">
+    <button id="doctorAddBtn" class="button-primary">
+      <i class="fas fa-user-plus"></i> Add Doctor
+    </button>
+    <input id="doctorSearchInput" type="text" placeholder="Search doctor name or specialty..." />
+    <select id="doctorStatusFilter">
+      <option value="all">All statuses</option>
+      <option value="available">Available</option>
+      <option value="on-duty">On duty</option>
+      <option value="absent">Absent</option>
+    </select>
+    <button id="doctorExportBtn" class="button-outline">
+      <i class="fas fa-file-export"></i> Export CSV
+    </button>
+    <div class="view-switcher" style="margin-left:auto;">
+      <button id="doctorViewTableBtn" class="active"><i class="fas fa-table"></i> Table</button>
+      <button id="doctorViewGridBtn"><i class="fas fa-th-large"></i> Grid</button>
+    </div>
+  </div>
+
+  <!-- ===== GRID VIEW ===== -->
+  <div id="doctorGridContainer" class="doctor-grid-container" style="display:none;"></div>
+
+  <!-- ===== TABLE VIEW ===== -->
+  <div class="table-wrapper" id="doctorTableWrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Doctor</th>
+          <th>Specialty</th>
+          <th>Status</th>
+          <th>Email</th>
+          <th>Ward</th>
+          <th style="text-align:center">Actions</th>
+        </tr>
+      </thead>
+      <tbody id="doctorTableBody">
+        <!-- dynamic doctor rows injected by script -->
+      </tbody>
+    </table>
+  </div>
+
+</div>

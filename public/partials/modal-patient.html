@@ -1,0 +1,147 @@
+<!-- ===== PATIENT MODAL ===== -->
+<div id="patientModal" class="patient-modal" aria-hidden="true">
+  <div class="patient-modal__backdrop" data-modal-close></div>
+  <div class="patient-modal__panel" role="dialog" aria-modal="true" aria-labelledby="patientModalTitle">
+
+    <div class="patient-modal__header"
+      style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid var(--gray-200);">
+      <h3 id="patientModalTitle" style="font-size:1.1rem;color:var(--gray-900)">Add Patient</h3>
+      <button data-modal-close type="button"
+        style="border:none;background:transparent;cursor:pointer;color:var(--gray-500);font-size:1.2rem;">&times;</button>
+    </div>
+
+    <div class="patient-modal__body" style="padding:16px;display:flex;flex-direction:column;gap:12px;">
+      <input id="patientModalMode" type="hidden" value="add" />
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <label style="flex:1;min-width:180px;font-weight:700;color:var(--gray-700);font-size:0.9rem;">
+          Patient Name
+          <input id="patientNameInput" type="text"
+            style="width:100%;margin-top:6px;padding:10px 14px;border-radius:12px;border:1px solid var(--gray-200);outline:none;" />
+        </label>
+        <label style="flex:1;min-width:160px;font-weight:700;color:var(--gray-700);font-size:0.9rem;">
+          Patient ID
+          <input id="patientIdInput" type="text" placeholder="P-1234"
+            style="width:100%;margin-top:6px;padding:10px 14px;border-radius:12px;border:1px solid var(--gray-200);outline:none;" />
+        </label>
+      </div>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <label style="flex:1;min-width:100px;font-weight:700;color:var(--gray-700);font-size:0.9rem;">
+          Age
+          <input id="patientAgeInput" type="number" min="0" max="150"
+            style="width:100%;margin-top:6px;padding:10px 14px;border-radius:12px;border:1px solid var(--gray-200);outline:none;" />
+        </label>
+        <label style="flex:1;min-width:140px;font-weight:700;color:var(--gray-700);font-size:0.9rem;">
+          Gender
+          <select id="patientGenderSelect"
+            style="width:100%;margin-top:6px;padding:10px 14px;border-radius:12px;border:1px solid var(--gray-200);outline:none;font-weight:700;color:var(--gray-700);">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+        </label>
+        <label style="flex:1;min-width:140px;font-weight:700;color:var(--gray-700);font-size:0.9rem;">
+          Blood Group
+          <select id="patientBloodGroupSelect"
+            style="width:100%;margin-top:6px;padding:10px 14px;border-radius:12px;border:1px solid var(--gray-200);outline:none;font-weight:700;color:var(--gray-700);">
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+          </select>
+        </label>
+      </div>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <label style="flex:1;min-width:200px;font-weight:700;color:var(--gray-700);font-size:0.9rem;">
+          Ward / Room
+          <input id="patientWardInput" type="text" placeholder="e.g., Ward 2B · 108"
+            style="width:100%;margin-top:6px;padding:10px 14px;border-radius:12px;border:1px solid var(--gray-200);outline:none;" />
+        </label>
+        <label style="flex:1;min-width:190px;font-weight:700;color:var(--gray-700);font-size:0.9rem;">
+          Status
+          <select id="patientStatusSelect"
+            style="width:100%;margin-top:6px;padding:10px 14px;border-radius:12px;border:1px solid var(--gray-200);outline:none;font-weight:700;color:var(--gray-700);">
+            <option value="admitted">Admitted</option>
+            <option value="outpatient">Outpatient</option>
+            <option value="emergency">Emergency</option>
+            <option value="observation">Observation</option>
+            <option value="discharged">Discharged</option>
+          </select>
+        </label>
+      </div>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <label style="flex:1;min-width:100%;font-weight:700;color:var(--gray-700);font-size:0.9rem;">
+          Admitting Diagnosis
+          <input id="patientDiagnosisInput" type="text" placeholder="e.g., Acute Appendicitis"
+            style="width:100%;margin-top:6px;padding:10px 14px;border-radius:12px;border:1px solid var(--gray-200);outline:none;" />
+        </label>
+      </div>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <label style="flex:1;min-width:120px;font-weight:700;color:var(--gray-700);font-size:0.9rem;">
+          Heart Rate (bpm)
+          <input id="patientHeartRateInput" type="number" min="30" max="250" placeholder="72"
+            style="width:100%;margin-top:6px;padding:10px 14px;border-radius:12px;border:1px solid var(--gray-200);outline:none;" />
+        </label>
+        <label style="flex:1;min-width:130px;font-weight:700;color:var(--gray-700);font-size:0.9rem;">
+          Blood Pressure
+          <input id="patientBloodPressureInput" type="text" placeholder="120/80"
+            style="width:100%;margin-top:6px;padding:10px 14px;border-radius:12px;border:1px solid var(--gray-200);outline:none;" />
+        </label>
+        <label style="flex:1;min-width:120px;font-weight:700;color:var(--gray-700);font-size:0.9rem;">
+          Temperature (°C)
+          <input id="patientTemperatureInput" type="number" step="0.1" min="30" max="45" placeholder="36.8"
+            style="width:100%;margin-top:6px;padding:10px 14px;border-radius:12px;border:1px solid var(--gray-200);outline:none;" />
+        </label>
+      </div>
+
+      <!-- Stay Timings -->
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <label style="flex:1;min-width:180px;font-weight:700;color:var(--gray-700);font-size:0.9rem;">
+          Admission Date
+          <input id="patientAdmitDateInput" type="date"
+            style="width:100%;margin-top:6px;padding:10px 14px;border-radius:12px;border:1px solid var(--gray-200);outline:none;font-family:inherit;" />
+        </label>
+        <label style="flex:1;min-width:180px;font-weight:700;color:var(--gray-700);font-size:0.9rem;">
+          Admission Time
+          <input id="patientAdmitTimeInput" type="time"
+            style="width:100%;margin-top:6px;padding:10px 14px;border-radius:12px;border:1px solid var(--gray-200);outline:none;font-family:inherit;" />
+        </label>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <label style="flex:1;min-width:180px;font-weight:700;color:var(--gray-700);font-size:0.9rem;">
+          Checkout Date
+          <input id="patientDischargeDateInput" type="date"
+            style="width:100%;margin-top:6px;padding:10px 14px;border-radius:12px;border:1px solid var(--gray-200);outline:none;font-family:inherit;" />
+        </label>
+        <label style="flex:1;min-width:180px;font-weight:700;color:var(--gray-700);font-size:0.9rem;">
+          Checkout Time
+          <input id="patientDischargeTimeInput" type="time"
+            style="width:100%;margin-top:6px;padding:10px 14px;border-radius:12px;border:1px solid var(--gray-200);outline:none;font-family:inherit;" />
+        </label>
+      </div>
+
+      <div style="font-size:0.85rem;color:var(--gray-500)">Tip: Editing locks Patient ID so it matches records.</div>
+    </div>
+
+    <div class="patient-modal__footer"
+      style="padding:14px 16px;border-top:1px solid var(--gray-200);display:flex;justify-content:space-between;align-items:center;gap:12px;">
+      <button id="patientDeleteBtn" type="button"
+        style="display:none;border:1px solid #fecaca;background:#fee2e2;color:#991b1b;cursor:pointer;padding:10px 14px;border-radius:12px;font-weight:600;">
+        Delete
+      </button>
+      <div style="display:flex;gap:10px;margin-left:auto">
+        <button id="patientCancelBtn" type="button" class="button-outline">Cancel</button>
+        <button id="patientSaveBtn" type="button" class="button-primary">Save</button>
+      </div>
+    </div>
+
+  </div>
+</div>

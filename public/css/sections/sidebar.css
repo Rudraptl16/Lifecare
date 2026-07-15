@@ -1,0 +1,144 @@
+/* ==========================================================
+   3. SIDEBAR — Nav panel, Toggle, Overlay
+   ========================================================== */
+
+.sidebar {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--gray-200);
+  padding: 24px 18px;
+  min-height: calc(100vh - 48px);
+  transition: transform 0.25s ease;
+}
+
+.sidebar .brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.sidebar .brand-title {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar .brand-title strong {
+  font-size: 1.4rem;
+  color: var(--gray-900);
+}
+
+.sidebar .brand-title span {
+  font-size: 0.85rem;
+  color: var(--gray-500);
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar .nav-group {
+  margin-bottom: 24px;
+}
+
+.sidebar .nav-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.sidebar .nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  color: var(--gray-700);
+  text-decoration: none;
+  transition: var(--transition);
+  font-weight: 600;
+}
+
+.sidebar .nav-item:hover,
+.sidebar .nav-item.active {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.sidebar .nav-item i {
+  width: 20px;
+  text-align: center;
+}
+
+.sidebar .sidebar-footer {
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid var(--gray-100);
+  font-size: 0.85rem;
+  color: var(--gray-500);
+}
+
+/* ── Mobile Toggle Button ────────────────────────────────── */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  z-index: 1250;
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: 14px;
+  background: white;
+  color: var(--gray-800);
+  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-toggle i {
+  font-size: 1.1rem;
+}
+
+/* ── Close Button (mobile) ───────────────────────────────── */
+.sidebar-close {
+  display: none;
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  border: none;
+  background: transparent;
+  color: var(--gray-500);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* ── Overlay (mobile) ────────────────────────────────────── */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.34);
+  z-index: 1140;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+body.sidebar-open .sidebar-overlay {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+body.sidebar-open .sidebar {
+  transform: translateX(0);
+}

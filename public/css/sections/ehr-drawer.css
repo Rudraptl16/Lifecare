@@ -1,0 +1,361 @@
+/* ==========================================================
+   13. EHR DRAWER — Slide-in panel, ECG, Vitals, Logs
+   ========================================================== */
+
+/* ── Drawer Container ────────────────────────────────────── */
+.ehr-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 1300;
+  pointer-events: none;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.ehr-drawer.open {
+  pointer-events: auto;
+}
+
+.ehr-drawer__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ehr-drawer.open .ehr-drawer__backdrop {
+  opacity: 1;
+}
+
+.ehr-drawer__panel {
+  position: relative;
+  width: 480px;
+  max-width: 100%;
+  height: 100%;
+  background: white;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10;
+}
+
+.ehr-drawer.open .ehr-drawer__panel {
+  transform: translateX(0);
+}
+
+/* ── Header ──────────────────────────────────────────────── */
+.ehr-drawer__header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ehr-drawer__header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.ehr-drawer__avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+}
+
+.ehr-drawer__header-left h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+.ehr-drawer__id {
+  font-size: 0.8rem;
+  color: var(--gray-500);
+  font-family: monospace;
+  background: var(--gray-100);
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-top: 2px;
+  display: inline-block;
+}
+
+.ehr-drawer__close {
+  border: none;
+  background: transparent;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--gray-400);
+  transition: var(--transition);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ehr-drawer__close:hover {
+  background: var(--gray-100);
+  color: var(--gray-700);
+}
+
+/* ── Body ────────────────────────────────────────────────── */
+.ehr-drawer__body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── ECG Card ────────────────────────────────────────────── */
+.ecg-card {
+  background: #09090b;
+  color: #22c55e;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ecg-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #a1a1aa;
+}
+
+.ecg-card__header i {
+  color: #ef4444;
+  animation: heartPulse 1.2s infinite;
+}
+
+.ecg-rate {
+  color: #22c55e;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.ecg-canvas {
+  width: 100%;
+  height: 70px;
+  display: block;
+}
+
+@keyframes heartPulse {
+  0%   { transform: scale(1); }
+  15%  { transform: scale(1.3); }
+  30%  { transform: scale(1); }
+  45%  { transform: scale(1.3); }
+  60%  { transform: scale(1); }
+  100% { transform: scale(1); }
+}
+
+/* ── Vitals Grid ─────────────────────────────────────────── */
+.ehr-vitals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.vitals-widget {
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+}
+
+.vitals-widget i { font-size: 1.2rem; }
+
+.vitals-icon-hr   { color: #ef4444; }
+.vitals-icon-bp   { color: #3b82f6; }
+.vitals-icon-temp { color: #f59e42; }
+
+.vitals-info  { display: flex; flex-direction: column; }
+
+.vitals-label {
+  font-size: 0.72rem;
+  color: var(--gray-500);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.vitals-value {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--gray-800);
+}
+
+/* ── Profile Info Grid ───────────────────────────────────── */
+.ehr-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: 14px;
+  padding: 16px;
+  font-size: 0.88rem;
+  color: var(--gray-700);
+}
+
+.ehr-info-grid strong { color: var(--gray-900); }
+
+/* ── Clinical Logs ───────────────────────────────────────── */
+.ehr-logs-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ehr-logs-section h4 {
+  font-size: 0.95rem;
+  color: var(--gray-800);
+  font-weight: 700;
+  border-bottom: 2px solid var(--gray-100);
+  padding-bottom: 6px;
+}
+
+.ehr-logs-list {
+  max-height: 250px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-right: 4px;
+}
+
+.ehr-log-item {
+  background: var(--gray-50);
+  border-left: 3px solid var(--primary);
+  padding: 10px 12px;
+  border-radius: 0 10px 10px 0;
+  font-size: 0.85rem;
+}
+
+.ehr-log-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--gray-500);
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.ehr-log-text {
+  color: var(--gray-700);
+  line-height: 1.4;
+}
+
+/* ── Add Note Form ───────────────────────────────────────── */
+.add-note-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.add-note-form textarea {
+  width: 100%;
+  height: 64px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--gray-200);
+  outline: none;
+  font-size: 0.88rem;
+  resize: none;
+  font-family: inherit;
+}
+
+.add-note-form textarea:focus {
+  border-color: var(--primary);
+}
+
+/* ── Clinical Telemetry Widget ───────────────────────────── */
+.telemetry-card {
+  background: #09090b;
+  border-radius: var(--radius-sm);
+  border: 1px solid #1f1f23;
+  padding: 20px;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: fadeInUp 0.45s ease both;
+  grid-column: span 2;
+}
+
+.telemetry-card h3 {
+  color: #f4f4f5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.1rem;
+}
+
+.telemetry-card h3 span {
+  color: #10b981;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: rgba(16, 185, 129, 0.1);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.telemetry-monitors {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.telemetry-screen {
+  background: #18181b;
+  border-radius: 12px;
+  padding: 14px;
+  border: 1px solid #27272a;
+  position: relative;
+}
+
+.telemetry-screen__label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: #a1a1aa;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.telemetry-screen__label span.glow-text {
+  color: var(--glow-color);
+  text-shadow: 0 0 8px var(--glow-color);
+}
+
+.telemetry-screen__canvas {
+  width: 100%;
+  height: 60px;
+  display: block;
+}
