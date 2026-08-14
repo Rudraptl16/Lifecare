@@ -2,7 +2,7 @@
 
 Lifecare is a modern, responsive, and feature-rich Hospital Management System (HMS) designed to streamline clinical operations. Built as a high-performance Single Page Application (SPA) using vanilla web technologies, it provides real-time client-side simulation, offline-first data persistence, and a modular architecture.
 
----
+------
 
 ## 🚀 Key Features
 
@@ -114,16 +114,6 @@ Since the project is already pre-configured for Firebase, you can serve it using
    firebase serve
    ```
 4. Open [http://localhost:5000](http://localhost:5000) in your browser.
-
-### Option B: Using standard HTTP Server
-Alternatively, you can run it using any static file server:
-```bash
-# Using Node.js npx:
-npx http-server public
-
-# Or using Python 3:
-python -m http.server --directory public 8000
-```
 
 ---
 
